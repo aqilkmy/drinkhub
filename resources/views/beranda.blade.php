@@ -10,74 +10,74 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="bg-white">
-  <header class="absolute inset-x-0 top-0 z-50">
-    <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
-      <div class="flex lg:flex-1">
-        <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">DrinkHub</span>
-          <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
-        </a>
-      </div>
-      <div class="flex lg:hidden">
-        <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-          <span class="sr-only">Open main menu</span>
-          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
-      </div>
-      <div class="hidden lg:flex lg:gap-x-12">
-        <a href="{{ route('beranda') }}"
-            class="text-base font-bold relative
-                    {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950' }}">
-            Beranda
-        </a>
-        <a href="#" class="text-base/6 font-bold text-cyan-950">Produk</a>
-        <a href="#" class="text-base/6 font-bold text-cyan-950">Kontak</a>
-        <a href="#" class="text-base/6 font-bold text-cyan-950">Tentang</a>
-      </div>
-      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90"> Daftar <span aria-hidden="true"></span></a>
-      </div>
-    </nav>
-    <!-- Mobile menu, show/hide based on menu open state. -->
-    <div class="lg:hidden" role="dialog" aria-modal="true">
-      <!-- Background backdrop, show/hide based on slide-over state. -->
-      <div class="fixed inset-0 z-50"></div>
-      <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-        <div class="flex items-center justify-between">
+  <div class="bg-white">
+    <header class="absolute inset-x-0 top-0 z-50">
+      <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
+        <div class="flex lg:flex-1">
           <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">Your Company</span>
-            <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="">
+            <span class="sr-only">DrinkHub</span>
+            <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
           </a>
-          <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-            <span class="sr-only">Close menu</span>
+        </div>
+        <div class="flex lg:hidden">
+          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+            <span class="sr-only">Open main menu</span>
             <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </button>
         </div>
-        <div class="mt-6 flow-root">
-          <div class="-my-6 divide-y divide-gray-500/10">
-            <div class="space-y-2 py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
-            </div>
-            <div class="py-6">
-              <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a href="{{ route('beranda') }}"
+              class="text-base font-bold relative
+                      {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950' }}">
+              Beranda
+          </a>
+          <a href="#" class="text-base/6 font-bold text-cyan-950">Produk</a>
+          <a href="#" class="text-base/6 font-bold text-cyan-950">Kontak</a>
+          <a href="#" class="text-base/6 font-bold text-cyan-950">Tentang</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90"> Daftar <span aria-hidden="true"></span></a>
+        </div>
+      </nav>
+      <!-- Mobile menu, show/hide based on menu open state. -->
+      <div class="lg:hidden" role="dialog" aria-modal="true">
+        <!-- Background backdrop, show/hide based on slide-over state. -->
+        <div class="fixed inset-0 z-50"></div>
+        <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <div class="flex items-center justify-between">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">Your Company</span>
+              <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600" alt="">
+            </a>
+            <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+              <span class="sr-only">Close menu</span>
+              <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-6 flow-root">
+            <div class="-my-6 divide-y divide-gray-500/10">
+              <div class="space-y-2 py-6">
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
+              </div>
+              <div class="py-6">
+                <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
 <body class="font-poppins ">
-  <div class="bg-blue-200 py-24 pb-32 px-10 relative">
-    <div class="mx-auto px-4 py-10 flex flex-row items-center justify-center">
+  <div class="bg-blue-200 py-20 px-10 relative">
+    <div class="mx-auto my-10 px-4 py-10 flex flex-row items-center justify-center">
       
       <!-- Kiri: Logo dan Brand -->
       <div class="flex flex-col items-center lg:items-start text-center lg:text-left mx-10 gap-y-8">
@@ -86,7 +86,7 @@
 
       <!-- Kanan: Teks Deskripsi -->
       <div class="mt-10 lg:mt-0 lg:w-1/2 text-cyan-950 gap-y-8 mx-10">
-        <h2 class="text-2xl lg:text-4xl font-semibold">THE PERFECT BLEND<br><span class="font-bold">FOR EVERY SIP</span></h2>
+        <h2 class="text-2xl lg:text-4xl font-semibold font-serif text-white">THE PERFECT BLEND<br><span class="font-bold">FOR EVERY SIP</span></h2>
         <p class="mt-4 text-sm text-cyan-950">
           Purchase your favorite drink from your favorite places here, on our web. As smooth as in the app. Same fast delivery. Countless places to try.
         </p>
@@ -163,16 +163,66 @@
               </div>
         </div>
       </div>
-      
+  
       <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30">
         <div class="h-3/5">
           <img src="https://kulinerkota.com/wp-content/uploads/2021/11/kopijanjijiwa.bdg_.maranatha_117375713_339941020360543_8110940709322829824_n.jpg" alt="janjiw" class="w-full h-full object-cover">
+          <h3 class="my-3 mx-5 text-xl text-white font-bold">Janji Jiwa</h3>
+              {{-- Rating --}}
+              <div class="flex gap-2">
+                <div class="text-xs ml-5">
+                  <i class="fas fa-star text-white"></i>
+                  <i class="fas fa-star text-white"></i>
+                  <i class="fas fa-star text-white"></i>
+                  <i class="fas fa-star text-white"></i>
+                  <i class="far fa-star text-white"></i>
+                </div>
+                {{-- Angka rating --}}
+                <p class="text-white text-xs">4.6</p>
+                {{-- Jumlah rating --}}
+                <p class="text-white text-xs">(1.234 ulasan)</p>
+              </div>
+              {{-- Lokasi --}}
+              <div class="ml-5 mt-5 flex gap-2">
+                <div class="content-center">
+                  <i class="fas fa-map-marker-alt text-white"></i>
+                </div>
+                <div class="flex-col text-xs text-white">
+                  <p>1.1 km</p>
+                  <p>Jl. Mayjen Sungkono No....</p>
+                </div>
+              </div>
         </div>
       </div>
 
     </div>
 
+    <div class="my-14">
+      <button class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
+          Lihat Produk Lain
+      </button>
+    </div>
+
   </div>
+<!-- Section Cabang -->
+<div class="bg-blue-200 py-20 px-10 text-center">
+  <div class="flex flex-wrap justify-center gap-6">
+    <!-- Daftar Cabang -->
+    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Purwokerto Utara</span>
+    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Purwokerto Timur</span>
+    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Purwokerto Selatan</span>
+    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Purwokerto Barat</span>
+    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Sokaraja</span>
+    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Kebumen</span>
+    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Ajibarang</span>
+  </div>
+  <div class="my-14">
+      <button class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
+          Lihat Daerah Lain
+      </button>
+    </div>
+</div>
+
 
 </body>
     <script src="https://cdn.tailwindcss.com"></script>
