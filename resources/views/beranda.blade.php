@@ -6,16 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
     <div class="bg-white">
   <header class="absolute inset-x-0 top-0 z-50">
-    <nav class="flex items-center justify-between p-6 lg:px-8 bg-blue-200 font-poppins" aria-label="Global">
+    <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
       <div class="flex lg:flex-1">
         <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
-          <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="100">
+          <span class="sr-only">DrinkHub</span>
+          <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
         </a>
       </div>
       <div class="flex lg:hidden">
@@ -27,13 +28,17 @@
         </button>
       </div>
       <div class="hidden lg:flex lg:gap-x-12">
-        <a href="#" class="text-base/6 font-bold text-cyan-900">Beranda</a>
-        <a href="#" class="text-base/6 font-bold text-cyan-900">Produk</a>
-        <a href="#" class="text-base/6 font-bold text-cyan-900">Kontak</a>
-        <a href="#" class="text-base/6 font-bold text-cyan-900">Tentang</a>
+        <a href="{{ route('beranda') }}"
+            class="text-base font-bold relative
+                    {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950' }}">
+            Beranda
+        </a>
+        <a href="#" class="text-base/6 font-bold text-cyan-950">Produk</a>
+        <a href="#" class="text-base/6 font-bold text-cyan-950">Kontak</a>
+        <a href="#" class="text-base/6 font-bold text-cyan-950">Tentang</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" class="text-base/6 font-bold text-cyan-900 bg-white px-4 py-2 rounded-lg "> Daftar <span aria-hidden="true"></span></a>
+        <a href="#" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90"> Daftar <span aria-hidden="true"></span></a>
       </div>
     </nav>
     <!-- Mobile menu, show/hide based on menu open state. -->
@@ -70,53 +75,103 @@
     </div>
   </header>
 
-<body class="font-poppins bg-[#c9daf8]">
-  <div class="max-w-7xl mx-auto px-4 py-10 flex flex-col lg:flex-row items-center justify-between">
-    
-    <!-- Kiri: Logo dan Brand -->
-    <div class="flex flex-col items-center lg:items-start text-center lg:text-left">
-      <div class="w-40 h-40 bg-blue-300 rounded-full flex items-center justify-center shadow-md mb-4">
-        <span class="text-sm text-white">[Logo Gelas Air]</span>
+<body class="font-poppins ">
+  <div class="bg-blue-200 py-24 pb-32 px-10 relative">
+    <div class="mx-auto px-4 py-10 flex flex-row items-center justify-center">
+      
+      <!-- Kiri: Logo dan Brand -->
+      <div class="flex flex-col items-center lg:items-start text-center lg:text-left mx-10 gap-y-8">
+        <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="300">
       </div>
-      <h1 class="text-4xl font-bold text-[#003366]">Drink <span class="bg-white text-[#003366] px-2 py-1 rounded">Hub</span></h1>
-    </div>
 
-    <!-- Kanan: Teks Deskripsi -->
-    <div class="mt-6 lg:mt-0 lg:w-1/2 text-white">
-      <h2 class="text-2xl lg:text-3xl font-semibold">THE PERFECT BLEND<br><span class="font-bold">FOR EVERY SIP</span></h2>
-      <p class="mt-4 text-sm text-white/90">
-        Purchase your favorite drink from your favorite places here, on our web. As smooth as in the app. Same fast delivery. Countless places to try.
-      </p>
-    </div>
-  </div>
-
-  <!-- Box Lokasi -->
-  <div class="flex flex-col lg:flex-row items-center justify-center mt-4 gap-4 px-4">
-    <div class="bg-[#0c2b4a] text-white px-6 py-4 rounded-2xl flex flex-col lg:flex-row items-center gap-4 shadow-lg">
-      <div class="text-sm font-semibold">Your Location</div>
-      <div class="flex items-center bg-white text-black px-4 py-2 rounded-full gap-2 w-full max-w-xs">
-        <span class="text-lg">📍</span>
-        <span class="truncate text-sm">Jl. Mayjen Sungkono No....</span>
-        <svg class="w-4 h-4 text-gray-500 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-        </svg>
+      <!-- Kanan: Teks Deskripsi -->
+      <div class="mt-10 lg:mt-0 lg:w-1/2 text-cyan-950 gap-y-8 mx-10">
+        <h2 class="text-2xl lg:text-4xl font-semibold">THE PERFECT BLEND<br><span class="font-bold">FOR EVERY SIP</span></h2>
+        <p class="mt-4 text-sm text-cyan-950">
+          Purchase your favorite drink from your favorite places here, on our web. As smooth as in the app. Same fast delivery. Countless places to try.
+        </p>
       </div>
-      <button class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition">
-        Explore
-      </button>
     </div>
 
-    <!-- Icon Cuaca -->
-    <div class="bg-[#0c2b4a] w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg">
-      <span class="text-white">[🌡️ Ikon Suhu]</span>
+    <!-- Box Lokasi -->
+    <div class="absolute left-1/2 transform -translate-x-1/2 top-150 z-10">
+      <div class="flex flex-col lg:flex-row items-center justify-center mt-4 gap-4">
+        <div class="bg-gradient-to-t from-cyan-950 to-cyan-900 text-white px-6 py-4 rounded-3xl flex flex-col items-center gap-4 shadow-lg">
+          <div class="text-sm font-semibold">Lokasimu</div>
+            <div class="flex flex-col lg:flex-row">
+              <div class="flex items-center bg-white text-black px-4 py-2 rounded-full gap-2 w-full max-w-xs mx-2">
+                <span class="text-lg">📍</span>
+                <span class="truncate text-sm">Jl. Mayjen Sungkono No....</span>
+                <svg class="w-4 h-4 text-gray-500 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              <button class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
+                Explore
+              </button>
+            </div>
+        </div>
+
+        <!-- Icon Cuaca -->
+        <div>
+          <div class="bg-gradient-to-t from-cyan-950 to-cyan-900 text-white px-7 py-7 rounded-3xl flex flex-col lg:flex-row items-center gap-4 shadow-lg">
+            <span class="text-white flex flex-col lg:flex-row items-center justify-center">
+              <img src="{{ asset('build/assets/img/hot.png') }}" alt="hot" width="50" class="">
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Section Bawah -->
-  <div class="mt-10 text-center">
+  <div class="mt-28 text-center flex flex-col justify-center items-center">
+
     <h2 class="text-2xl font-bold text-[#001f3f]">Cuaca panas, enaknya minum apa?</h2>
     <p class="text-gray-800 mt-2">Temukan beragam minuman favorit, menu andalan lokal, dan penawaran eksklusif di dekatmu.</p>
     <div class="w-20 h-1 bg-blue-300 mx-auto mt-4 rounded-full"></div>
+
+    {{-- Card  menu --}}
+    <div class="m-10 flex gap-10">
+      <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30">
+        <div class="h-3/5">
+          <img src="https://th.bing.com/th/id/OIP.lyHmygf4dxoCY3VAqxfvvgHaHZ?o=7&cb=thvnextc1rm=3&rs=1&pid=ImgDetMain" alt="kopken" class="w-full h-full object-cover">
+              <h3 class="my-3 mx-5 text-xl text-white font-bold">Kopi Kenangan</h3>
+              {{-- Rating --}}
+              <div class="flex gap-2">
+                <div class="text-xs ml-5">
+                  <i class="fas fa-star text-white"></i>
+                  <i class="fas fa-star text-white"></i>
+                  <i class="fas fa-star text-white"></i>
+                  <i class="fas fa-star text-white"></i>
+                  <i class="far fa-star text-white"></i>
+                </div>
+                {{-- Angka rating --}}
+                <p class="text-white text-xs">4.6</p>
+                {{-- Jumlah rating --}}
+                <p class="text-white text-xs">(1.200 ulasan)</p>
+              </div>
+              {{-- Lokasi --}}
+              <div class="ml-5 mt-5 flex gap-2">
+                <div class="content-center">
+                  <i class="fas fa-map-marker-alt text-white"></i>
+                </div>
+                <div class="flex-col text-xs text-white">
+                  <p>1.7 km</p>
+                  <p>Jl. Mayjen Sungkono No....</p>
+                </div>
+              </div>
+        </div>
+      </div>
+      
+      <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30">
+        <div class="h-3/5">
+          <img src="https://kulinerkota.com/wp-content/uploads/2021/11/kopijanjijiwa.bdg_.maranatha_117375713_339941020360543_8110940709322829824_n.jpg" alt="janjiw" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 </body>
