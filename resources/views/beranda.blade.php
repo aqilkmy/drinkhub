@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Document</title>
+    <link rel="icon" href="{{ asset('build/assets/img/logo-white.png') }}" class="">
+    <title>DrinkHub</title>
 </head>
 <body>
   <div class="bg-white">
@@ -112,7 +113,7 @@
             </div>
         </div>
 
-        <!-- Icon Cuaca -->
+        {{-- Cuaca  --}}
         <div>
           <div class="bg-gradient-to-t from-cyan-950 to-cyan-900 text-white px-7 py-7 rounded-3xl flex flex-col lg:flex-row items-center gap-4 shadow-lg">
             <span class="text-white flex flex-col lg:flex-row items-center justify-center">
@@ -223,9 +224,76 @@
     </div>
 </div>
 
+<footer class="bot-0 bg-cyan-950 px-8 py-4 flex">
+  {{-- 2/5 --}}
+      <div class="flex justify-start items-start p-8 "> <div class="w-2/5 grid gap-y-8 mr-5">
+          <div class="flex flex-row content-center items-center">
+              <img src="{{ asset('build/assets/img/logo-white.png') }}" alt="logo" class="h-20">
+              <p class="text-white font-extrabold text-3xl">DrinkHub</p>
+          </div>
+          <div>
+              <p class="text-white text-sm">DrinkHub adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div>
+              <div class="flex space-x-2">
+                  <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors duration-200">
+                      <i class="fab fa-instagram text-cyan-950 text-xl"></i>
+                  </a>
+                  <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors duration-200">
+                      <i class="fab fa-facebook-f text-cyan-950 text-xl"></i>
+                  </a>
+                  <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors duration-200">
+                      <i class="fab fa-twitter text-cyan-950 text-xl"></i>
+                  </a>
+                  <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors duration-200">
+                      <i class="fab fa-tiktok text-cyan-950 text-xl"></i>
+                  </a>
+              </div>
+          </div>
+      </div>
+{{-- 1/5 --}}
+      <div class="w-1/5 grid mr-5 gap-y-8">
+          <div class="content-center h-20">
+            <a href="#" class="text-xl font-bold text-white items-center">Kontak</a>
+          </div>
+          <div class="text-white text-sm grid gap-y-2">
+              <p>Jl. doang jadian kaga alkdsa no. 69</p>
+              <p>0869 - 9696 - 6969</p>
+              <p>drinkhub@drunk.co.id</p>
+          </div>
+      </div>
+{{-- 1/5 --}}
+      <div class="w-1/5 grid mr-5 gap-y-8">
+          <div class="content-center h-20">
+            <a href="#" class="text-xl font-bold text-white items-center">Partner</a>
+          </div>
+          <div class="text-white text-sm gap-y-2 flex">
+            <a href="#" class="w-20">
+              <img src="https://jiwagroup.com/media/brand/brand_logo-1696822776Logo-JJ.png" alt="Janjiw" class="">
+            </a>
+            <a href="#" class="w-10">
+              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBLptG_uWleSX8zc6VdaRVZ98de2lJLs0UnhEPT_FRbk7dGjkX55WE2I7TIwFwVBXc4Yc9fqNhxxoNgUdqXI09eGrPirz7qHORCmMASm4Mi8A-OhFP8WLot0wUwUy1YcEtn1vcNEc5USHRfrY8e7aTofqF5_7xseDYGRvYJoLkGhv4m88Ca8sdWMvBJw/s16000/simbol-kopi-kenangan.png" alt="kopken" class="">
+            </a>
+            <a href="#" class="w-10">
+              <img src="https://logos-world.net/wp-content/uploads/2020/09/Starbucks-Logo.png" alt="sbuck" class="">
+            </a>
+          </div>
+      </div>
+{{-- 1/5 --}}
+      <div class="w-1/5 grid mr-5 gap-y-8">
+          <div class="content-center h-20">
+            <a href="#" class="text-xl font-bold text-white items-center">Informasi</a>
+          </div>
+          <div class="text-white text-sm grid gap-y-2">
+              <a href="#">Tentang Kami</a>
+          </div>
+      </div>
+</footer>
 
 </body>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+
+<script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
