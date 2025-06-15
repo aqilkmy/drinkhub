@@ -15,23 +15,26 @@
         <header class="inset-x-0 top-0 z-50">
         <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
             <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">DrinkHub</span>
-                <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
-            </a>
+                <a href="#" class="-m-1.5 p-1.5">
+                    <span class="sr-only">DrinkHub</span>
+                    <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
+                </a>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-            <a href="{{ route('beranda') }}"
-                class="text-base font-bold relative
-                        {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950' }}">
+                <a href="{{ route('beranda') }}"
+                class="text-base font-bold relative 
+                        {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
                 Beranda
-            </a>
-            <a href="#" class="text-base/6 font-bold text-cyan-950">Produk</a>
-            <a href="#" class="text-base/6 font-bold text-cyan-950">Kontak</a>
-            <a href="#" class="text-base/6 font-bold text-cyan-950">Tentang</a>
+                </a>
+                <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Produk</a>
+                <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Kontak</a>
+                <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90"> Masuk <span aria-hidden="true"></span></a>
+                <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90
+                                        transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-101">
+                    Masuk <span aria-hidden="true"></span>
+                </a>
             </div>
         </nav>
         </header>
@@ -75,9 +78,9 @@
                 <p class=" text-cyan-950 text-sm pt-2">Masukkan username dan password kamu dibawah</p>
             </div>
             <div class="px-8 py-4">
-                <input type="text" placeholder="Username" class="w-full p-2 border border-cyan-900 rounded-2xl mt-4">
-                <input type="password" placeholder="Password" class="w-full p-2 border border-cyan-900 rounded-2xl mt-2">
-                <button class="w-full bg-gradient-to-t from-cyan-950 to-cyan-900 text-white p-2 rounded-2xl mt-4 hover:to-cyan-950">Masuk</button>
+                <input type="text" placeholder="Username" class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
+                <input type="password" placeholder="Password" class="w-full p-2 border border-cyan-900 rounded-3xl mt-2">
+                <button class="w-full bg-gradient-to-t from-cyan-950 to-cyan-900 text-white p-2 rounded-3xl mt-4 hover:to-cyan-950">Masuk</button>
             </div>
         </div>
     </div>
@@ -99,9 +102,9 @@
                 <p class=" text-cyan-950 text-sm pt-2">Buat dan masukkan username dan password kamu dibawah</p>
             </div>
             <div class="px-8 py-4">
-                <input type="text" placeholder="Username" class="w-full p-2 border border-cyan-900 rounded-2xl mt-4">
-                <input type="password" placeholder="Password" class="w-full p-2 border border-cyan-900 rounded-2xl mt-2">
-                <button class="w-full bg-gradient-to-t from-cyan-950 to-cyan-900 text-white p-2 rounded-2xl mt-4 hover:to-cyan-950">Daftar</button>
+                <input type="text" placeholder="Username" class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
+                <input type="password" placeholder="Password" class="w-full p-2 border border-cyan-900 rounded-3xl mt-2">
+                <button class="w-full bg-gradient-to-t from-cyan-950 to-cyan-900 text-white p-2 rounded-3xl mt-4 hover:to-cyan-950">Daftar</button>
             </div>
         </div>
     </div>

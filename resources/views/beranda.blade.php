@@ -29,16 +29,18 @@
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
           <a href="{{ route('beranda') }}"
-              class="text-base font-bold relative
-                      {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950' }}">
+              class="text-base font-bold relative 
+                      {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
               Beranda
           </a>
-          <a href="#" class="text-base/6 font-bold text-cyan-950">Produk</a>
-          <a href="#" class="text-base/6 font-bold text-cyan-950">Kontak</a>
-          <a href="#" class="text-base/6 font-bold text-cyan-950">Tentang</a>
+          <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Produk</a>
+          <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Kontak</a>
+          <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90"> Masuk <span aria-hidden="true"></span></a>
+          <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90
+                                  transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-101">
+            Masuk <span aria-hidden="true"></span></a>
         </div>
       </nav>
     </header>
@@ -101,7 +103,8 @@
 
     {{-- Card  menu --}}
     <div class="m-10 flex gap-10">
-      <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30">
+      <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30 
+                  transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
         <div class="h-3/5">
           <img src="https://th.bing.com/th/id/OIP.lyHmygf4dxoCY3VAqxfvvgHaHZ?o=7&cb=thvnextc1rm=3&rs=1&pid=ImgDetMain" alt="kopken" class="w-full h-full object-cover">
               <h3 class="my-3 mx-5 text-xl text-white font-bold">Kopi Kenangan</h3>
@@ -132,7 +135,8 @@
         </div>
       </div>
   
-      <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30">
+      <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30
+                  transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
         <div class="h-3/5">
           <img src="https://kulinerkota.com/wp-content/uploads/2021/11/kopijanjijiwa.bdg_.maranatha_117375713_339941020360543_8110940709322829824_n.jpg" alt="janjiw" class="w-full h-full object-cover">
           <h3 class="my-3 mx-5 text-xl text-white font-bold">Janji Jiwa</h3>
@@ -166,9 +170,9 @@
     </div>
 
     <div class="my-14">
-      <button class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
+      <a href="#" class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
           Lihat Produk Lain
-      </button>
+      </a>
     </div>
 
   </div>
