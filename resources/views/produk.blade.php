@@ -54,59 +54,12 @@
     </header>
 
 <body class="font-poppins ">
-  <div class="bg-blue-200 py-20 px-10 relative">
-    <div class="mx-auto my-10 px-4 py-10 flex flex-row items-center justify-center">
-      
-      <!-- Kiri: Logo dan Brand -->
-      <div class="flex flex-col items-center lg:items-start text-center lg:text-left mx-10 gap-y-8">
-        <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="300">
-      </div>
-
-      <!-- Kanan: Teks Deskripsi -->
-      <div class="mt-10 lg:mt-0 lg:w-1/2 text-cyan-950 gap-y-8 mx-10">
-        <h2 class="text-2xl lg:text-4xl font-semibold font-serif text-white">THE PERFECT BLEND<br><span class="font-bold">FOR EVERY SIP</span></h2>
-        <p class="mt-4 text-sm text-cyan-950">
-          Purchase your favorite drink from your favorite places here, on our web. As smooth as in the app. Same fast delivery. Countless places to try.
-        </p>
-      </div>
-    </div>
-
-    <!-- Box Lokasi -->
-    <div class="absolute left-1/2 transform -translate-x-1/2 top-150 z-10">
-      <div class="flex flex-col lg:flex-row items-center justify-center mt-4 gap-4">
-        <div class="bg-gradient-to-t from-cyan-950 to-cyan-900 text-white px-6 py-4 rounded-3xl flex flex-col items-center gap-4 shadow-lg">
-          <div class="text-sm font-semibold">Lokasimu</div>
-            <div class="flex flex-col lg:flex-row">
-              <div class="flex items-center bg-white text-black px-4 py-2 rounded-full gap-2 w-full max-w-xs mx-2">
-                <span class="text-lg">📍</span>
-                <span class="truncate text-sm">Jl. Mayjen Sungkono No....</span>
-                <svg class="w-4 h-4 text-gray-500 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-              <button class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
-                Explore
-              </button>
-            </div>
-        </div>
-
-        {{-- Cuaca  --}}
-        <div>
-          <div class="bg-gradient-to-t from-cyan-950 to-cyan-900 text-white px-7 py-7 rounded-3xl flex flex-col lg:flex-row items-center gap-4 shadow-lg">
-            <span class="text-white flex flex-col lg:flex-row items-center justify-center">
-              <img src="{{ asset('build/assets/img/hot.png') }}" alt="hot" width="50" class="">
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Section Bawah -->
   <div class="mt-28 text-center flex flex-col justify-center items-center">
 
-    <h2 class="text-2xl font-bold text-[#001f3f]">Cuaca panas, enaknya minum apa?</h2>
-    <p class="text-gray-800 mt-2">Temukan beragam minuman favorit, menu andalan lokal, dan penawaran eksklusif di dekatmu.</p>
+    <h2 class="text-2xl font-bold text-[#001f3f]">Produk</h2>
+    <p class="text-gray-800 mt-2">Mau minum apa hari ini?</p>
     <div class="w-20 h-1 bg-blue-300 mx-auto mt-4 rounded-full"></div>
 
     {{-- Card  menu --}}
@@ -177,31 +130,7 @@
 
     </div>
 
-    <div class="my-14">
-      <a href="#" class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
-          Lihat Produk Lain
-      </a>
-    </div>
-
   </div>
-<!-- Section Cabang -->
-<div class="bg-blue-200 py-20 px-10 text-center">
-  <div class="flex flex-wrap justify-center gap-6">
-    <!-- Daftar Cabang -->
-    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Purwokerto Utara</span>
-    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Purwokerto Timur</span>
-    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Purwokerto Selatan</span>
-    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Purwokerto Barat</span>
-    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Sokaraja</span>
-    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Kebumen</span>
-    <span class="bg-white text-cyan-950 font-semibold rounded-full px-6 py-2 shadow-md">Ajibarang</span>
-  </div>
-  <div class="my-14">
-      <button class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
-          Lihat Daerah Lain
-      </button>
-    </div>
-</div>
 
 <footer class="bot-0 bg-cyan-950 px-8 py-4 flex">
   {{-- 2/5 --}}
