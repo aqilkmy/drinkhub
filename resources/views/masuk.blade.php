@@ -10,7 +10,7 @@
     <link rel="icon" href="{{ asset('build/assets/img/logo-white.png') }}" class="">
     <title>Daftar - DrinkHub</title>
 </head>
-<body class="bg-white flex-col">
+<body class="bg-white flex-col font-poppins">
     <div class="">
         <header class="inset-x-0 top-0 z-50">
         <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
@@ -77,11 +77,15 @@
                 <p class="text-cyan-950 text-2xl font-semibold">Selamat datang kembali di DrinkHub!</p>
                 <p class=" text-cyan-950 text-sm pt-2">Masukkan username dan password kamu dibawah</p>
             </div>
-            <div class="px-8 py-4">
-                <input type="text" placeholder="Username" class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
-                <input type="password" placeholder="Password" class="w-full p-2 border border-cyan-900 rounded-3xl mt-2">
-                <button class="w-full bg-gradient-to-t from-cyan-950 to-cyan-900 text-white p-2 rounded-3xl mt-4 hover:to-cyan-950">Masuk</button>
-            </div>
+            <form method="POST" action="{{ route('proses.login') }}" class="px-8 py-4">
+                @csrf
+                <input name="email" type="email" placeholder="Email" required class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
+                <input name="password" type="password" placeholder="Password" required class="w-full p-2 border border-cyan-900 rounded-3xl mt-2">
+                <button type="submit" class="w-full bg-gradient-to-t from-cyan-950 to-cyan-900 text-white p-2 rounded-3xl mt-4 hover:to-cyan-950">
+                    Masuk
+                </button>
+            </form>
+
         </div>
     </div>
 
