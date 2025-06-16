@@ -142,46 +142,48 @@
               </div>
         </div>
       </div>
-  
-      <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30
-                  transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
-        <div class="h-3/5">
-          <img src="https://kulinerkota.com/wp-content/uploads/2021/11/kopijanjijiwa.bdg_.maranatha_117375713_339941020360543_8110940709322829824_n.jpg" alt="janjiw" class="w-full h-full object-cover">
-          <h3 class="my-3 mx-5 text-xl text-white font-bold">Janji Jiwa</h3>
-              {{-- Rating --}}
-              <div class="flex gap-2">
-                <div class="text-xs ml-5">
-                  <i class="fas fa-star text-white"></i>
-                  <i class="fas fa-star text-white"></i>
-                  <i class="fas fa-star text-white"></i>
-                  <i class="fas fa-star text-white"></i>
-                  <i class="far fa-star text-white"></i>
+      
+      <a href="/produk/janjijiwa">
+        <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30
+                    transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
+          <div class="h-3/5">
+            <img src="https://kulinerkota.com/wp-content/uploads/2021/11/kopijanjijiwa.bdg_.maranatha_117375713_339941020360543_8110940709322829824_n.jpg" alt="janjiw" class="w-full h-full object-cover">
+            <h3 class="my-3 mx-5 text-xl text-white font-bold">Janji Jiwa</h3>
+                {{-- Rating --}}
+                <div class="flex gap-2">
+                  <div class="text-xs ml-5">
+                    <i class="fas fa-star text-white"></i>
+                    <i class="fas fa-star text-white"></i>
+                    <i class="fas fa-star text-white"></i>
+                    <i class="fas fa-star text-white"></i>
+                    <i class="far fa-star text-white"></i>
+                  </div>
+                  {{-- Angka rating --}}
+                  <p class="text-white text-xs">4.6</p>
+                  {{-- Jumlah rating --}}
+                  <p class="text-white text-xs">(1.234 ulasan)</p>
                 </div>
-                {{-- Angka rating --}}
-                <p class="text-white text-xs">4.6</p>
-                {{-- Jumlah rating --}}
-                <p class="text-white text-xs">(1.234 ulasan)</p>
-              </div>
-              {{-- Lokasi --}}
-              <div class="ml-5 mt-5 flex gap-2">
-                <div class="content-center">
-                  <i class="fas fa-map-marker-alt text-white"></i>
+                {{-- Lokasi --}}
+                <div class="ml-5 mt-5 flex gap-2">
+                  <div class="content-center">
+                    <i class="fas fa-map-marker-alt text-white"></i>
+                  </div>
+                  <div class="flex-col text-xs text-white">
+                    <p>1.1 km</p>
+                    <p>Jl. Mayjen Sungkono No....</p>
+                  </div>
                 </div>
-                <div class="flex-col text-xs text-white">
-                  <p>1.1 km</p>
-                  <p>Jl. Mayjen Sungkono No....</p>
-                </div>
-              </div>
+          </div>
         </div>
+
       </div>
 
-    </div>
-
-    <div class="my-14">
-      <a href="#" class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
-          Lihat Produk Lain
-      </a>
-    </div>
+      <div class="my-14">
+        <a href="#" class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
+            Lihat Produk Lain
+        </a>
+      </div>
+    </a>
 
   </div>
 <!-- Section Cabang -->

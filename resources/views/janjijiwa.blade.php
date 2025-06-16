@@ -88,7 +88,7 @@
             <div class="flex gap-x-2 justify-center">
                 <p class="font-bold text-green-800 text-xl text-center">$$$</p>
             </div>
-            <p class="text-center">15rb - 50rb</p>
+            <p class="text-center">15rb - 28rb</p>
         </div>
         <div class="w-0.5 h-4/5 bg-blue-100 rounded-full"></div>
 
@@ -114,11 +114,9 @@
                             </div>
                         </div>
                         <div class="absolute right-0 bottom-4 mr-6">
-                            <!-- ID harus unik jika ada banyak kartu -->
                             <div id="addButton_1" class="add-button w-[150px] py-2 border-2 text-cyan-950 border-cyan-950 hover:text-white hover:bg-gradient-to-r from-cyan-950 to-cyan-900 cursor-pointer transition-all duration-300 ease-in-out px-2 rounded-3xl text-center ">
                                 <p class="text-sm">Tambah</p>
                             </div>
-                            <!-- ID harus unik jika ada banyak kartu -->
                             <div id="quantityCounter_1" class="quantity-counter hidden flex items-center justify-between w-[150px] py-2 px-2 rounded-3xl transition-all duration-300 ease-in-out">
                                 <button class="w-8 h-8 rounded-full bg-cyan-950 text-white flex items-center justify-center font-bold text-lg hover:opacity-80 transition-opacity" onclick="decreaseQuantity(this)">-</button>
                                 <span class="text-cyan-950 font-bold text-lg mx-2" data-quantity="0">0</span>
@@ -128,7 +126,7 @@
                     </div>
                 </div>
 
-                <!-- Card 2 (Kopi Lain) -->
+                <!-- Card 2 (Ice Latte) -->
                  <div class="w-[430px] h-[225px] border border-gray-200 bg-white rounded-2xl shadow-lg shadow-black/10">
                     <div class="p-6 relative h-full">
                         <div class="flex">
@@ -190,7 +188,7 @@
                         <p class="text-cyan-950 text-sm mt-10">18.000</p>
                       </div>
                       <div class="absolute right-0 top-0 mr-6 mt-6 w-[150px] h-[150px] overflow-hidden">
-                        <img src="https://janjijiwa.vercel.app/assets/img/enak-kopi/menu-3.png" alt="" class="w-full h-full object-cover">
+                        <img src="https://janjijiwa.vercel.app/assets/img/enak-kopi/menu-3.png" alt="" class="w-full h-full object-cover scale-95">
                       </div>
                     </div>
                     <div class="absolute right-0 bottom-4 mr-6">
@@ -242,7 +240,7 @@
                         <p class="text-cyan-950 text-sm mt-10">20.000</p>
                       </div>
                       <div class="absolute right-0 top-0 mr-6 mt-6 w-[150px] h-[150px] overflow-hidden">
-                        <img src="https://janjijiwa.vercel.app/assets/img/enak-kopi/menu-5.png" alt="" class="w-full h-full object-cover">
+                        <img src="https://janjijiwa.vercel.app/assets/img/enak-kopi/menu-5.png" alt="" class="w-full h-full object-cover scale-90">
                       </div>
                     </div>
                     <div class="absolute right-0 bottom-4 mr-6">
@@ -284,11 +282,39 @@
                   </div>
                 </div>
                   
-
-
             </div>
     </div>
 
+
+    {{-- Keranjang --}}
+
+    <div id="cartBar" class="hidden sticky bottom-5 z-50 w-full flex justify-center px-4 mb-6">
+      <div class="w-full max-w-md flex items-center justify-between bg-gradient-to-r from-cyan-950 to-cyan-900 text-white px-6 py-3 rounded-full shadow-lg">
+        <span id="cartItems" class="font-bold text-sm">0 Item</span>
+        <div class="flex items-center gap-2">
+          <span id="cartTotal" class="font-bold text-sm">0</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="white" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.293 2.293a1 1 0 001.414 1.414L8 14h9a1 1 0 001-1v-1H7zm0 0V7h12v6H7z"/></svg>
+        </div>
+      </div>
+    </div>
+
+    {{-- <Checkout --}}
+    <div id="checkoutModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+      <div class="bg-white w-full max-w-md rounded-2xl p-6 max-h-[80vh] overflow-y-auto relative">
+        <button id="closeCheckoutModal" class="absolute top-4 right-4 text-cyan-950 text-2xl font-bold hover:text-red-600 transition">
+          &times;
+        </button>
+        <h2 class="text-xl font-bold text-cyan-950 mb-4">Ringkasan Pesanan</h2>
+        <div id="checkoutItems" class="space-y-3 mb-4">
+          {{-- item list --}}
+        </div>
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-cyan-950 font-semibold">Total</span>
+          <span id="checkoutTotal" class="text-cyan-950 font-bold">Rp 0</span>
+        </div>
+        <button class="w-full bg-gradient-to-r from-cyan-950 to-cyan-900 text-white py-3 rounded-full text-center font-semibold hover:opacity-90 transition-all">Beli</button>
+      </div>
+    </div>
 
   </body>
   <footer class="bot-0 bg-cyan-950 px-8 py-4 flex">
@@ -359,45 +385,140 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const addButtons = document.querySelectorAll('.add-button');
+  const prices = {
+    1: 16000, // Es Kopi Susu
+    2: 17000, // Es Kopi Coklat
+    3: 28000, // Es Kopi Pokat
+    4: 18000, // Es Coco Presso
+    5: 15000, // Es Kopi Hitam
+    6: 20000, // Es Kopi Soklat
+    7: 15000, // Ice Americano
+  };
 
-        addButtons.forEach(function(addButton) {
-            addButton.addEventListener('click', function() {
-                const quantityCounter = addButton.nextElementSibling;
-                const quantitySpan = quantityCounter.querySelector('span[data-quantity]');
-                addButton.classList.add('hidden');
-                quantityCounter.classList.remove('hidden');
-                quantitySpan.dataset.quantity = '1';
-                quantitySpan.textContent = '1';
-            });
-        });
-    });
+  function updateCart() {
+    let totalItems = 0;
+    let totalPrice = 0;
 
-    function increaseQuantity(button) {
-        const quantitySpan = button.previousElementSibling;
-        let quantity = parseInt(quantitySpan.dataset.quantity);
-        quantity++;
-        quantitySpan.dataset.quantity = quantity;
-        quantitySpan.textContent = quantity;
-    }
-
-    function decreaseQuantity(button) {
-        const quantitySpan = button.nextElementSibling;
-        let quantity = parseInt(quantitySpan.dataset.quantity);
+    for (let i = 1; i <= 7; i++) {
+      const counter = document.querySelector(`#quantityCounter_${i} [data-quantity]`);
+      if (counter) {
+        const quantity = parseInt(counter.dataset.quantity);
         if (quantity > 0) {
-            quantity--;
-            quantitySpan.dataset.quantity = quantity;
-            quantitySpan.textContent = quantity;
-            if (quantity === 0) {
-                const quantityCounter = button.closest('.quantity-counter');
-                const addButton = quantityCounter.previousElementSibling;
-                quantityCounter.classList.add('hidden');
-                addButton.classList.remove('hidden');
-            }
+          totalItems += quantity;
+          totalPrice += quantity * prices[i];
         }
+      }
     }
+
+    const cartBar = document.getElementById("cartBar");
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+
+    if (totalItems > 0) {
+      cartBar.classList.remove("hidden");
+      cartItems.textContent = `${totalItems} Item`;
+      cartTotal.textContent = totalPrice.toLocaleString("id-ID");
+    } else {
+      cartBar.classList.add("hidden");
+    }
+  }
+
+  function increaseQuantity(btn) {
+    const counter = btn.parentElement;
+    const span = counter.querySelector("[data-quantity]");
+    let qty = parseInt(span.dataset.quantity);
+    qty++;
+    span.dataset.quantity = qty;
+    span.textContent = qty;
+    updateCart();
+  }
+
+  function decreaseQuantity(btn) {
+    const counter = btn.parentElement;
+    const span = counter.querySelector("[data-quantity]");
+    let qty = parseInt(span.dataset.quantity);
+    if (qty > 0) {
+      qty--;
+      span.dataset.quantity = qty;
+      span.textContent = qty;
+    }
+
+
+    if (qty === 0) {
+      const card = counter.closest(".relative");
+      const id = card.querySelector(".quantity-counter").id.split("_")[1];
+      document.getElementById(`quantityCounter_${id}`).classList.add("hidden");
+      document.getElementById(`addButton_${id}`).classList.remove("hidden");
+    }
+
+    updateCart();
+  }
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const addButtons = document.querySelectorAll(".add-button");
+    addButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.id.split("_")[1];
+        const counter = document.getElementById(`quantityCounter_${id}`);
+        const span = counter.querySelector("[data-quantity]");
+
+        span.dataset.quantity = 1;
+        span.textContent = "1";
+
+        btn.classList.add("hidden");
+        counter.classList.remove("hidden");
+
+        updateCart(); 
+      });
+    });
+    const closeBtn = document.getElementById("closeCheckoutModal");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        const checkoutModal = document.getElementById("checkoutModal");
+        checkoutModal.classList.add("hidden");
+      });
+    }
+  });
+
+
+  document.getElementById('cartBar').addEventListener('click', function () {
+  const checkoutModal = document.getElementById('checkoutModal');
+  const checkoutItemsContainer = document.getElementById('checkoutItems');
+  const checkoutTotal = document.getElementById('checkoutTotal');
+
+  checkoutItemsContainer.innerHTML = ''; 
+  let totalHarga = 0;
+
+  document.querySelectorAll('.quantity-counter').forEach((counter, index) => {
+    const quantity = parseInt(counter.querySelector('span[data-quantity]').dataset.quantity);
+    if (quantity > 0) {
+      const card = counter.closest('.border');
+      const title = card.querySelector('p.font-bold').textContent;
+      const price = parseInt(card.querySelector('p.text-sm.mt-10').textContent.replace('.', '').replace(',', ''));
+
+      const subtotal = quantity * price;
+      totalHarga += subtotal;
+
+   
+      checkoutItemsContainer.innerHTML += `
+        <div class="flex justify-between items-center border-b pb-2">
+          <div>
+            <p class="font-semibold text-cyan-950">${title}</p>
+            <p class="text-sm text-gray-500">${quantity} x Rp ${price.toLocaleString()}</p>
+          </div>
+          <div class="text-cyan-950 font-bold">Rp ${subtotal.toLocaleString()}</div>
+        </div>
+      `;
+    }
+  });
+
+  checkoutTotal.textContent = `Rp ${totalHarga.toLocaleString()}`;
+  checkoutModal.classList.remove('hidden');
+});
+
 </script>
+
 
 
 
