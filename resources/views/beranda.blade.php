@@ -10,7 +10,7 @@
     <link rel="icon" href="{{ asset('build/assets/img/logo-white.png') }}" class="">
     <title>Beranda - DrinkHub</title>
 </head>
-<body>
+<body class="bg-gradient-to-t from-blue-100 to-white">
     <header class="absolute inset-x-0 top-0 z-50">
       <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
         <div class="flex lg:flex-1">

@@ -10,7 +10,7 @@
     <link rel="icon" href="{{ asset('build/assets/img/logo-white.png') }}" class="">
     <title>Daftar - DrinkHub</title>
 </head>
-<body class="bg-white flex-col font-poppins">
+<body class="bg-gradient-to-t from-blue-100 to-white flex-col font-poppins">
     <div class="">
         <header class="inset-x-0 top-0 z-50">
         <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
@@ -22,12 +22,20 @@
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="{{ route('beranda') }}"
-                class="text-base font-bold relative 
-                        {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
-                Beranda
+                    class="text-base font-bold relative 
+                            {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                    Beranda
                 </a>
-                <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Produk</a>
-                <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Kontak</a>
+                <a href="{{ route('produk') }}"
+                    class="text-base font-bold relative 
+                            {{ Request::is('produk') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                    Produk
+                </a>
+                <a href="{{ route('kontak') }}"
+                    class="text-base font-bold relative 
+                            {{ Request::is('kontak') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                    Kontak
+                </a>
                 <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -164,5 +172,16 @@
 });
 </script>
 <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+            extend: {
+                fontFamily: {
+                poppins: ['Poppins', 'sans-serif'],
+                }
+            }
+            }
+        }
+</script>
 
 </html>

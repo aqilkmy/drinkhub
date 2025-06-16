@@ -8,131 +8,178 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" href="{{ asset('build/assets/img/logo-white.png') }}" class="">
-    <title>Beranda - DrinkHub</title>
+    <title>Produk - DrinkHub</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js']) 
 </head>
-<body>
+<body class="font-poppins bg-gradient-to-t from-blue-100 to-white">
+
     <header class="absolute inset-x-0 top-0 z-50">
-      <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
-        <div class="flex lg:flex-1">
-          <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">DrinkHub</span>
-            <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
-          </a>
-        </div>
-        <div class="flex lg:hidden">
-          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-            <span class="sr-only">Open main menu</span>
-            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-        </div>
-        <div class="hidden lg:flex lg:gap-x-12">
-          <a href="{{ route('beranda') }}"
-              class="text-base font-bold relative 
-                      {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
-              Beranda
-          </a>
-           <a href="{{ route('produk') }}"
-              class="text-base font-bold relative 
-                      {{ Request::is('produk') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
-              Produk
-          </a>
-           <a href="{{ route('kontak') }}"
-              class="text-base font-bold relative 
-                      {{ Request::is('kontak') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
-              Kontak
-          </a>
-          <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
-        </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90
-                                  transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-101">
-            Masuk <span aria-hidden="true"></span></a>
-        </div>
-      </nav>
+        <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5 z-40" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="#" class="-m-1.5 p-1.5">
+                    <span class="sr-only">DrinkHub</span>
+                    <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
+                </a>
+            </div>
+            <div class="flex lg:hidden">
+                <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden lg:flex lg:gap-x-12">
+                <a href="{{ route('beranda') }}"
+                    class="text-base font-bold relative 
+                            {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                    Beranda
+                </a>
+                <a href="{{ route('produk') }}"
+                    class="text-base font-bold relative 
+                            {{ Request::is('produk') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                    Produk
+                </a>
+                <a href="{{ route('kontak') }}"
+                    class="text-base font-bold relative 
+                            {{ Request::is('kontak') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                    Kontak
+                </a>
+                <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90
+                                     transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-101">
+                    Masuk <span aria-hidden="true"></span></a>
+            </div>
+        </nav>
     </header>
 
-<body class="font-poppins ">
+    <div class="mt-28 text-center flex flex-col justify-center items-center">
+        <h2 class="text-2xl font-bold text-[#001f3f]">Produk</h2>
+        <p class="text-gray-800 mt-2">Mau minum apa hari ini?</p>
+        <div class="w-20 h-1 bg-blue-300 mx-auto mt-4 rounded-full"></div>
 
-  <!-- Section Bawah -->
-  <div class="mt-28 text-center flex flex-col justify-center items-center">
+        <div class="m-10 flex gap-10">
+            <a href="#">
+                <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30 
+                            transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
+                    <div class="h-3/5">
+                        <img src="https://th.bing.com/th/id/OIP.lyHmygf4dxoCY3VAqxfvvgHaHZ?o=7&cb=thvnextc1rm=3&rs=1&pid=ImgDetMain" alt="kopken" class="w-full h-full object-cover">
+                        <h3 class="my-3 mx-5 text-xl text-white font-bold">Kopi Kenangan</h3>
+                        <div class="flex gap-2">
+                            <div class="text-xs ml-5">
+                                <i class="fas fa-star text-white"></i>
+                                <i class="fas fa-star text-white"></i>
+                                <i class="fas fa-star text-white"></i>
+                                <i class="fas fa-star text-white"></i>
+                                <i class="far fa-star text-white"></i>
+                            </div>
+                            <p class="text-white text-xs">4,6</p>
+                            <p class="text-white text-xs">(1,200 ulasan)</p>
+                        </div>
+                        <div class="ml-5 mt-5 flex gap-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="flex-col text-xs text-white">
+                                <p>1,7 km</p>
+                                <p>Jl. Mayjen Sungkono No....</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
 
-    <h2 class="text-2xl font-bold text-[#001f3f]">Produk</h2>
-    <p class="text-gray-800 mt-2">Mau minum apa hari ini?</p>
-    <div class="w-20 h-1 bg-blue-300 mx-auto mt-4 rounded-full"></div>
-
-    {{-- Card  menu --}}
-    <div class="m-10 flex gap-10">
-      <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30 
-                  transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
-        <div class="h-3/5">
-          <img src="https://th.bing.com/th/id/OIP.lyHmygf4dxoCY3VAqxfvvgHaHZ?o=7&cb=thvnextc1rm=3&rs=1&pid=ImgDetMain" alt="kopken" class="w-full h-full object-cover">
-              <h3 class="my-3 mx-5 text-xl text-white font-bold">Kopi Kenangan</h3>
-              {{-- Rating --}}
-              <div class="flex gap-2">
-                <div class="text-xs ml-5">
-                  <i class="fas fa-star text-white"></i>
-                  <i class="fas fa-star text-white"></i>
-                  <i class="fas fa-star text-white"></i>
-                  <i class="fas fa-star text-white"></i>
-                  <i class="far fa-star text-white"></i>
+            <a href="/produk/janjijiwa">
+                <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30
+                            transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
+                    <div class="h-3/5">
+                        <img src="https://kulinerkota.com/wp-content/uploads/2021/11/kopijanjijiwa.bdg_.maranatha_117375713_339941020360543_8110940709322829824_n.jpg" alt="janjiw" class="w-full h-full object-cover">
+                        <h3 class="my-3 mx-5 text-xl text-white font-bold">Janji Jiwa</h3>
+                        <div class="flex gap-2">
+                            <div class="text-xs ml-5">
+                                <i class="fas fa-star text-white"></i>
+                                <i class="fas fa-star text-white"></i>
+                                <i class="fas fa-star text-white"></i>
+                                <i class="fas fa-star text-white"></i>
+                                <i class="far fa-star text-white"></i>
+                            </div>
+                            <p class="text-white text-xs">4,6</p>
+                            <p class="text-white text-xs">(1,234 ulasan)</p>
+                        </div>
+                        <div class="ml-5 mt-5 flex gap-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div class="flex-col text-xs text-white">
+                                <p>1,1 km</p>
+                                <p>Jl. Mayjen Sungkono No....</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {{-- Angka rating --}}
-                <p class="text-white text-xs">4.6</p>
-                {{-- Jumlah rating --}}
-                <p class="text-white text-xs">(1.200 ulasan)</p>
-              </div>
-              {{-- Lokasi --}}
-              <div class="ml-5 mt-5 flex gap-2">
-                <div class="content-center">
-                  <i class="fas fa-map-marker-alt text-white"></i>
+            </a>
+            
+            <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30
+                        transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
+                <div class="h-3/5">
+                    <img src="https://media.suara.com/pictures/970x544/2023/02/03/13504-minuman-chatime-twittercomchatimeindo.jpg" alt="chatime" class="w-full h-full object-cover">
+                    <h3 class="my-3 mx-5 text-xl text-white font-bold">Chatime</h3>
+                    <div class="flex gap-2">
+                        <div class="text-xs ml-5">
+                            <i class="fas fa-star text-white"></i>
+                            <i class="fas fa-star text-white"></i>
+                            <i class="fas fa-star text-white"></i>
+                            <i class="fas fa-star text-white"></i>
+                            <i class="far fa-star text-white"></i>
+                        </div>
+                        <p class="text-white text-xs">4,6</p>
+                        <p class="text-white text-xs">(1,234 ulasan)</p>
+                    </div>
+                    <div class="ml-5 mt-5 flex gap-2">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <div class="flex-col text-xs text-white">
+                            <p>1,1 km</p>
+                            <p>Jl. Mayjen Sungkono No....</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex-col text-xs text-white">
-                  <p>1.7 km</p>
-                  <p>Jl. Mayjen Sungkono No....</p>
+            </div>
+            
+            <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30
+                        transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
+                <div class="h-3/5">
+                    <img src="https://images.deliveryhero.io/image/fd-kh/LH/njrf-hero.jpg" alt="mixue" class="w-full h-full object-cover">
+                    <h3 class="my-3 mx-5 text-xl text-white font-bold">Mixue</h3>
+                    <div class="flex gap-2">
+                        <div class="text-xs ml-5">
+                            <i class="fas fa-star text-white"></i>
+                            <i class="fas fa-star text-white"></i>
+                            <i class="fas fa-star text-white"></i>
+                            <i class="fas fa-star text-white"></i>
+                            <i class="far fa-star text-white"></i>
+                        </div>
+                        <p class="text-white text-xs">4,6</p>
+                        <p class="text-white text-xs">(1,234 ulasan)</p>
+                    </div>
+                    <div class="ml-5 mt-5 flex gap-2">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-white"></i>
+                        </div>
+                        <div class="flex-col text-xs text-white">
+                            <p>1,1 km</p>
+                            <p>Jl. Mayjen Sungkono No....</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
-      </div>
-  
-      <div class="w-72 h-96 bg-gradient-to-r from-cyan-950 to-cyan-900 rounded-3xl overflow-hidden text-left shadow-xl shadow-black/30
-                  transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105">
-        <div class="h-3/5">
-          <img src="https://kulinerkota.com/wp-content/uploads/2021/11/kopijanjijiwa.bdg_.maranatha_117375713_339941020360543_8110940709322829824_n.jpg" alt="janjiw" class="w-full h-full object-cover">
-          <h3 class="my-3 mx-5 text-xl text-white font-bold">Janji Jiwa</h3>
-              {{-- Rating --}}
-              <div class="flex gap-2">
-                <div class="text-xs ml-5">
-                  <i class="fas fa-star text-white"></i>
-                  <i class="fas fa-star text-white"></i>
-                  <i class="fas fa-star text-white"></i>
-                  <i class="fas fa-star text-white"></i>
-                  <i class="far fa-star text-white"></i>
-                </div>
-                {{-- Angka rating --}}
-                <p class="text-white text-xs">4.6</p>
-                {{-- Jumlah rating --}}
-                <p class="text-white text-xs">(1.234 ulasan)</p>
-              </div>
-              {{-- Lokasi --}}
-              <div class="ml-5 mt-5 flex gap-2">
-                <div class="content-center">
-                  <i class="fas fa-map-marker-alt text-white"></i>
-                </div>
-                <div class="flex-col text-xs text-white">
-                  <p>1.1 km</p>
-                  <p>Jl. Mayjen Sungkono No....</p>
-                </div>
-              </div>
-        </div>
-      </div>
+    </div> 
 
-    </div>
-
-  </div>
-
-<footer class="bot-0 bg-cyan-950 px-8 py-4 flex">
+    <footer class="bot-0 bg-cyan-950 px-8 py-4 flex">
   {{-- 2/5 --}}
       <div class="flex justify-start items-start p-8 "> <div class="w-2/5 grid gap-y-8 mr-5">
           <div class="flex flex-row content-center items-center">
@@ -197,10 +244,7 @@
           </div>
       </div>
 </footer>
-
 </body>
-
-
 <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -213,5 +257,4 @@
             }
         }
 </script>
-
 </html>

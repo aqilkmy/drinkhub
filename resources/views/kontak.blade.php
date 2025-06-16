@@ -55,54 +55,54 @@
 
 <body class="bg-gradient-to-b from-[#0e2f4f] to-[#1b416c] text-white font-poppins min-h-screen">
 
-    <div class="container mx-auto px-6 py-40 flex flex-col md:flex-row justify-between items-center gap-10">
+    <div class="container mx-auto px-12 py-40 flex flex-col md:flex-row justify-between items-center gap-10">
     
-    <!-- Info Kontak -->
-    <div class="max-w-md">
-      <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
-      <p class="mb-6 text-gray-200">Punya pertanyaan, saran, atau ingin tahu lebih banyak tentang produk kami? Kami senang mendengarnya! Tim kami siap membantu Anda dengan sepenuh hati.</p>
-      <ul class="space-y-4 text-gray-300">
-        <li class="flex items-start">
-          <span class="mr-3">📧</span>
-          <span>drinkhub@drunk.co.id</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3">📞</span>
-          <span>0869 - 9696 - 6969</span>
-        </li>
-        <li class="flex items-start">
-          <span class="mr-3">📍</span>
-          <span>Jl. daong jadian kaga alkidsa no. 69</span>
-        </li>
-      </ul>
-    </div>
+      <!-- Info Kontak -->
+      <div class="max-w-md">
+        <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
+        <p class="mb-6 text-gray-200">Punya pertanyaan, saran, atau ingin tahu lebih banyak tentang produk kami? Kami senang mendengarnya! Tim kami siap membantu Anda dengan sepenuh hati.</p>
+        <ul class="space-y-4 text-gray-300">
+          <li class="flex items-start">
+            <span class="mr-3">📧</span>
+            <span>drinkhub@drunk.co.id</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-3">📞</span>
+            <span>0869 - 9696 - 6969</span>
+          </li>
+          <li class="flex items-start">
+            <span class="mr-3">📍</span>
+            <span>Jl. daong jadian kaga alkidsa no. 69</span>
+          </li>
+        </ul>
+      </div>
 
-    <!-- Form Kontak -->
-    <div class="bg-white text-gray-800 rounded-2xl p-8 shadow-lg w-full max-w-lg">
-      <h3 class="text-xl font-bold mb-6">Kami senang mendengar <br><span class="text-gray-500">kontol</span></h3>
-      <form action="#" method="POST" class="space-y-4">
-        <div>
-          <input type="text" name="nama" placeholder="Nama Lengkap" required
-            class="w-full px-4 py-2 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        <div>
-          <input type="email" name="email" placeholder="Email" required
-            class="w-full px-4 py-2 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        <div>
-          <input type="text" name="telepon" placeholder="Nomor HP" required
-            class="w-full px-4 py-2 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        </div>
-        <div>
-          <textarea name="pesan" rows="4" placeholder="Pesan" required
-            class="w-full px-4 py-2 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-        </div>
-        <div class="text-right">
-          <button type="submit"
-            class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-2 rounded-full hover:opacity-90 transition">Kirim</button>
-        </div>
-      </form>
-    </div>
+      <!-- Form Kontak -->
+      <div class="bg-white text-gray-800 rounded-2xl p-8 shadow-lg w-full max-w-lg">
+        <h3 class="text-xl font-bold mb-6">Kami senang mendengar <br><span class="text-gray-500">masukkan Anda</span></h3>
+        <form action="#" method="POST" class="space-y-4">
+          <div>
+            <input type="text" name="nama" placeholder="Nama Lengkap" required
+              class="w-full px-4 py-2 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <input type="email" name="email" placeholder="Email" required
+              class="w-full px-4 py-2 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <input type="text" name="telepon" placeholder="Nomor HP" required
+              class="w-full px-4 py-2 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <textarea name="pesan" rows="4" placeholder="Pesan" required
+              class="w-full px-4 py-2 rounded-md bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          </div>
+          <div class="text-right">
+            <button type="submit"
+              class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-2 rounded-full hover:opacity-90 transition">Kirim</button>
+          </div>
+        </form>
+      </div>
   </div>
 
 <footer class="bot-0 bg-cyan-950 px-8 py-4 flex">
