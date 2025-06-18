@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'product',
-        'price',
-        'latitude',
-        'longitude',
+    'product',
+    'price',
+    'quantity',
+    'latitude',
+    'longitude',
     ];
+
+
 }

@@ -14,20 +14,12 @@
 <body class="font-poppins bg-gradient-to-t from-blue-100 to-white">
 
     <header class="absolute inset-x-0 top-0 z-50">
-        <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5 z-40" aria-label="Global">
+        <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5 z-40" aria-label="Global"> 
             <div class="flex lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">DrinkHub</span>
                     <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
                 </a>
-            </div>
-            <div class="flex lg:hidden">
-                <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="{{ route('beranda') }}"
@@ -45,7 +37,16 @@
                             {{ Request::is('kontak') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
                     Kontak
                 </a>
-                <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
+               <a href="{{ route('tentang') }}"
+                  class="text-base font-bold relative 
+                          {{ Request::is('tentang') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                  Tentang
+                </a>
+                <a href="{{ route('admin.orders.index') }}"
+                    class="text-base font-bold relative 
+                            {{ Request::is('admin') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                    Admin
+                </a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90
@@ -187,7 +188,10 @@
               <p class="text-white font-extrabold text-3xl">DrinkHub</p>
           </div>
           <div>
-              <p class="text-white text-sm">DrinkHub adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p class="text-white text-sm">
+                DrinkHub adalah platform minuman online yang menghadirkan berbagai pilihan minuman kekinian dengan layanan pengantaran cepat berbasis lokasi. DrinkHub hadir untuk memenuhi gaya hidup dinamis Generasi Milenial dan Gen Z.
+              
+              </p>
           </div>
           <div>
               <div class="flex space-x-2">

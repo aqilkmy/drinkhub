@@ -73,16 +73,7 @@
                             {{ Request::is('kontak') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
                     Kontak
                 </a>
-                <a href="{{ route('tentang') }}"
-                  class="text-base font-bold relative 
-                          {{ Request::is('tentang') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
-                  Tentang
-                </a>
-                <a href="{{ route('admin.orders.index') }}"
-                    class="text-base font-bold relative 
-                            {{ Request::is('admin') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
-                    Admin
-                </a>
+                <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90
@@ -254,9 +245,7 @@
               <p class="text-white font-extrabold text-3xl">DrinkHub</p>
           </div>
           <div>
-              <p class="text-white text-sm">
-                DrinkHub adalah platform minuman online yang menghadirkan berbagai pilihan minuman kekinian dengan layanan pengantaran cepat berbasis lokasi. DrinkHub hadir untuk memenuhi gaya hidup dinamis Generasi Milenial dan Gen Z.
-              </p>
+              <p class="text-white text-sm">DrinkHub adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
           <div>
               <div class="flex space-x-2">

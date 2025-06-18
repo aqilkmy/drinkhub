@@ -25,8 +25,9 @@ class MasukController extends Controller
             return redirect()->route('beranda')->with('success', 'Berhasil login');
         }
 
-        return redirect()->route('masuk')->with('error', 'Username atau password salah');
+        return back()->withInput()->with('error', 'Username atau password salah');
     }
+
 
     // Proses daftar
     public function prosesDaftar(Request $request)

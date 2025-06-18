@@ -53,7 +53,16 @@ document.addEventListener('DOMContentLoaded', function () {
                             {{ Request::is('kontak') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
                     Kontak
                 </a>
-                <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
+               <a href="{{ route('tentang') }}"
+                  class="text-base font-bold relative 
+                          {{ Request::is('tentang') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                  Tentang
+                </a>
+                <a href="{{ route('admin.orders.index') }}"
+                    class="text-base font-bold relative 
+                            {{ Request::is('admin') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+                    Admin
+                </a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90
@@ -329,18 +338,16 @@ document.addEventListener('DOMContentLoaded', function () {
           <span class="text-cyan-950 font-semibold">Total</span>
           <span id="checkoutTotal" class="text-cyan-950 font-bold">Rp 0</span>
         </div>
-        <button class="w-full bg-gradient-to-r from-cyan-950 to-cyan-900 text-white py-3 rounded-full text-center font-semibold hover:opacity-90 transition-all">Beli</button>
-        <form action="{{ route('checkout') }}" method="POST">
-            @csrf
-            <input type="hidden" name="product" value="Kopi Susu">
-            <input type="hidden" name="price" value="18000">
-            
-            <!-- Ambil posisi lokasi dari browser -->
-            <input type="hidden" name="latitude" id="latitude">
-            <input type="hidden" name="longitude" id="longitude">
+        <form id="checkout-form" action="{{ route('checkout') }}" method="POST">
+          @csrf
+          <input type="hidden" name="items_json" id="items-json">
+          <input type="hidden" name="latitude" id="latitude">
+          <input type="hidden" name="longitude" id="longitude">
 
-            <button type="submit" onclick="getLocation()">Checkout</button>
+          <button type="submit" class="mt-4 bg-green-600 text-white px-4 py-2 rounded">Kirim Pesanan</button>
         </form>
+
+
       </div>
     </div>
 
@@ -471,7 +478,6 @@ document.addEventListener('DOMContentLoaded', function () {
       span.textContent = qty;
     }
 
-
     if (qty === 0) {
       const card = counter.closest(".relative");
       const id = card.querySelector(".quantity-counter").id.split("_")[1];
@@ -481,7 +487,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateCart();
   }
-
 
   document.addEventListener("DOMContentLoaded", () => {
     const addButtons = document.querySelectorAll(".add-button");
@@ -497,9 +502,10 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.classList.add("hidden");
         counter.classList.remove("hidden");
 
-        updateCart(); 
+        updateCart();
       });
     });
+
     const closeBtn = document.getElementById("closeCheckoutModal");
     if (closeBtn) {
       closeBtn.addEventListener("click", () => {
@@ -509,45 +515,70 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-
   document.getElementById('cartBar').addEventListener('click', function () {
-  const checkoutModal = document.getElementById('checkoutModal');
-  const checkoutItemsContainer = document.getElementById('checkoutItems');
-  const checkoutTotal = document.getElementById('checkoutTotal');
+    const checkoutModal = document.getElementById('checkoutModal');
+    const checkoutItemsContainer = document.getElementById('checkoutItems');
+    const checkoutTotal = document.getElementById('checkoutTotal');
 
-  checkoutItemsContainer.innerHTML = ''; 
-  let totalHarga = 0;
+    checkoutItemsContainer.innerHTML = '';
+    let totalHarga = 0;
 
-  document.querySelectorAll('.quantity-counter').forEach((counter, index) => {
-    const quantity = parseInt(counter.querySelector('span[data-quantity]').dataset.quantity);
-    if (quantity > 0) {
-      const card = counter.closest('.border');
-      const title = card.querySelector('p.font-bold').textContent;
-      const price = parseInt(card.querySelector('p.text-sm.mt-10').textContent.replace('.', '').replace(',', ''));
+    document.querySelectorAll('.quantity-counter').forEach((counter) => {
+      const quantitySpan = counter.querySelector('span[data-quantity]');
+      const quantity = parseInt(quantitySpan.dataset.quantity);
 
-      const subtotal = quantity * price;
-      totalHarga += subtotal;
+      if (quantity > 0) {
+        const id = counter.id.split('_')[1];
+        const card = counter.closest('.border');
+        const title = card.querySelector('p.font-bold').textContent.trim();
 
-   
-      checkoutItemsContainer.innerHTML += `
-        <div class="flex justify-between items-center border-b pb-2">
-          <div>
-            <p class="font-semibold text-cyan-950">${title}</p>
-            <p class="text-sm text-gray-500">${quantity} x Rp ${price.toLocaleString()}</p>
+        const price = prices[id];
+        const subtotal = quantity * price;
+        totalHarga += subtotal;
+
+        checkoutItemsContainer.innerHTML += `
+          <div class="flex justify-between items-center border-b pb-2">
+            <div>
+              <p class="font-semibold text-cyan-950">${title}</p>
+              <p class="text-sm text-gray-500">${quantity} x Rp ${price.toLocaleString("id-ID")}</p>
+            </div>
+            <div class="text-cyan-950 font-bold">Rp ${subtotal.toLocaleString("id-ID")}</div>
           </div>
-          <div class="text-cyan-950 font-bold">Rp ${subtotal.toLocaleString()}</div>
-        </div>
-      `;
-    }
+        `;
+      }
+    });
+
+    checkoutTotal.textContent = `Rp ${totalHarga.toLocaleString("id-ID")}`;
+    checkoutModal.classList.remove('hidden');
   });
-
-  checkoutTotal.textContent = `Rp ${totalHarga.toLocaleString()}`;
-  checkoutModal.classList.remove('hidden');
-});
-
 </script>
 
+<script>
+document.getElementById('checkout-form').addEventListener('submit', function (e) {
+    const items = [];
 
+    document.querySelectorAll('.quantity-counter').forEach((counter) => {
+        const quantitySpan = counter.querySelector('span[data-quantity]');
+        const quantity = parseInt(quantitySpan.dataset.quantity);
+
+        if (quantity > 0) {
+            const id = counter.id.split('_')[1];
+            const card = counter.closest('.border');
+            const title = card.querySelector('p.font-bold').textContent.trim();
+            const price = prices[id];
+
+            items.push({
+                nama_produk: title,
+                harga: price,
+                jumlah: quantity,
+                total: price * quantity
+            });
+        }
+    });
+
+    document.getElementById('items-json').value = JSON.stringify(items);
+});
+</script>
 
 
 
