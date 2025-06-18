@@ -99,7 +99,7 @@
                     </div>
                     <div class="w-64 text-center">
                         <img src="https://registrasi.unsoed.ac.id/infomhs/foto/H1D024096" alt="Aqil Karamoy" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover bg-white">
-                        <h3 class="font-bold text-cyan-950">Aqil Karamoy</h3>
+                        <h3 class="font-bold text-cyan-950">Muh. Aqil Karomy</h3>
                         <p class="text-cyan-800">Jabatan</p>
                     </div>
                     <div class="w-64 text-center">
