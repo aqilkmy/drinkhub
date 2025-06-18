@@ -10,6 +10,44 @@
     <link rel="icon" href="{{ asset('build/assets/img/logo-white.png') }}" class="">
     <title>Beranda - DrinkHub</title>
 </head>
+
+<script>
+  const API_KEY = 'b78007f40f57c1fad96728476b2c001e';
+  const CITY = 'Purbalingga';
+
+  async function getWeather() {
+    try {
+      console.log('Mengambil data cuaca...');
+
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=metric&appid=${API_KEY}`);
+      const data = await response.json();
+
+      console.log('Data diterima:', data);
+
+      const temp = data.main.temp;
+      console.log('Suhu sekarang:', temp);
+
+      const icon = document.getElementById('icon-cuaca');
+      const sectionInfo = document.getElementById('info-cuaca');
+
+      if (temp >= 30) {
+        console.log('Set ke panas');
+        icon.src = "{{ asset('build/assets/img/hot.png') }}";
+        sectionInfo.textContent = 'Cuaca panas, enaknya minum apa?';
+      } else {
+        console.log('Set ke dingin');
+        icon.src = "{{ asset('build/assets/img/cold.png') }}";
+        sectionInfo.textContent = 'Cuaca dingin, enaknya minum apa?';
+      }
+    } catch (error) {
+      console.error('Error mengambil cuaca:', error);
+    }
+  }
+
+  window.onload = getWeather;
+</script>
+
+
 <body class="bg-gradient-to-t from-blue-100 to-white">
     <header class="absolute inset-x-0 top-0 z-50">
       <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
@@ -94,7 +132,7 @@
         <div>
           <div class="bg-gradient-to-t from-cyan-950 to-cyan-900 text-white px-7 py-7 rounded-3xl flex flex-col lg:flex-row items-center gap-4 shadow-lg">
             <span class="text-white flex flex-col lg:flex-row items-center justify-center">
-              <img src="{{ asset('build/assets/img/hot.png') }}" alt="hot" width="50" class="">
+              <img id="icon-cuaca" src="" alt="" width="50" class="">
             </span>
           </div>
         </div>
@@ -105,7 +143,7 @@
   <!-- Section Bawah -->
   <div class="mt-28 text-center flex flex-col justify-center items-center">
 
-    <h2 class="text-2xl font-bold text-[#001f3f]">Cuaca panas, enaknya minum apa?</h2>
+    <section id="info-cuaca" class="text-2xl font-bold text-[#001f3f]"></section>
     <p class="text-gray-800 mt-2">Temukan beragam minuman favorit, menu andalan lokal, dan penawaran eksklusif di dekatmu.</p>
     <div class="w-20 h-1 bg-blue-300 mx-auto mt-4 rounded-full"></div>
 
@@ -179,7 +217,7 @@
       </div>
 
       <div class="my-14">
-        <a href="#" class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
+        <a href="/produk" class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
             Lihat Produk Lain
         </a>
       </div>

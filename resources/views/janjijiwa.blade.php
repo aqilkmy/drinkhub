@@ -11,6 +11,23 @@
     <title>Janji Jiwa - DrinkHub</title>
     @vite(['resources/css/app.css', 'resources/js/app.js']) 
 </head>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            document.getElementById('latitude').value = position.coords.latitude;
+            document.getElementById('longitude').value = position.coords.longitude;
+        }, function (error) {
+            console.error("Geolocation error:", error.message);
+        });
+    } else {
+        alert("Geolocation tidak didukung di browser ini.");
+    }
+});
+</script>
+
+
 <body class="font-poppins bg-gradient-to-t from-blue-100 to-white">
     <header class="absolute inset-x-0 top-0 z-50">
         <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5 z-40" aria-label="Global"> 
@@ -313,6 +330,17 @@
           <span id="checkoutTotal" class="text-cyan-950 font-bold">Rp 0</span>
         </div>
         <button class="w-full bg-gradient-to-r from-cyan-950 to-cyan-900 text-white py-3 rounded-full text-center font-semibold hover:opacity-90 transition-all">Beli</button>
+        <form action="{{ route('checkout') }}" method="POST">
+            @csrf
+            <input type="hidden" name="product" value="Kopi Susu">
+            <input type="hidden" name="price" value="18000">
+            
+            <!-- Ambil posisi lokasi dari browser -->
+            <input type="hidden" name="latitude" id="latitude">
+            <input type="hidden" name="longitude" id="longitude">
+
+            <button type="submit" onclick="getLocation()">Checkout</button>
+        </form>
       </div>
     </div>
 
@@ -518,6 +546,7 @@
 });
 
 </script>
+
 
 
 

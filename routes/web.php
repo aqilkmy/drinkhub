@@ -5,6 +5,8 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\MasukController;
 use App\Http\Controllers\JanjijiwaController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -14,3 +16,7 @@ Route::get('/kontak', [KontakController::class, 'kontak'])->name('kontak');;
 Route::get('/masuk', [MasukController::class, 'masuk'])->name('masuk');;
 Route::get('/produk/janjijiwa', [JanjijiwaController::class, 'janjijiwa'])->name('janjijiwa');;
 Route::post('/login', [MasukController::class, 'prosesLogin'])->name('proses.login');
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout');
+Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+
+
