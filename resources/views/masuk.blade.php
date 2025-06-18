@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -87,7 +88,7 @@
             </div>
             <form method="POST" action="{{ route('proses.login') }}" class="px-8 py-4">
                 @csrf
-                <input name="email" type="email" placeholder="Email" required class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
+                <input type="text" name="username" placeholder="Username" required class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
                 <input name="password" type="password" placeholder="Password" required class="w-full p-2 border border-cyan-900 rounded-3xl mt-2">
                 <button type="submit" class="w-full bg-gradient-to-t from-cyan-950 to-cyan-900 text-white p-2 rounded-3xl mt-4 hover:to-cyan-950">
                     Masuk
@@ -98,8 +99,9 @@
     </div>
 
     {{-- page Register --}}
+    {{-- page Register --}}
     <div id="card-daftar" class="hidden">
-        <div class="bg-white rounded-3xl relative w-[500px] h-[600px] overflow-hidden mt-20 shadow-xl shadow-black/30">
+        <div class="bg-white rounded-3xl relative w-[500px] overflow-hidden mt-20 shadow-xl shadow-black/30">
             <a href="/" class="absolute top-0 right-0 p-4 text-white hover:text-gray-600 text-xl font-bold z-20">
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
@@ -109,22 +111,33 @@
                 <img src="{{ asset('build/assets/img/login-pic.png') }}" alt="Login Picture"
                     class="relative w-4/5 h-auto object-contain z-10 rounded-2xl">
             </div>
-            <div class="px-8 py-4">
+            <div class="px-8 pt-4">
                 <p class="text-cyan-950 text-2xl font-semibold">Selamat datang di DrinkHub!</p>
                 <p class=" text-cyan-950 text-sm pt-2">Buat dan masukkan username dan password kamu dibawah</p>
             </div>
-            <div class="px-8 py-4">
-                <input type="text" placeholder="Username" class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
-                <input type="password" placeholder="Password" class="w-full p-2 border border-cyan-900 rounded-3xl mt-2">
-                <button class="w-full bg-gradient-to-t from-cyan-950 to-cyan-900 text-white p-2 rounded-3xl mt-4 hover:to-cyan-950">Daftar</button>
+            <div class="mx-8 my-4">
+                <form action="{{ route('proses.daftar') }}" method="POST" onsubmit="return true;">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="text" name="username" placeholder="Username" class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
+                    <input type="password" name="password" placeholder="Password" class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
+                    <input type="password" name="password_confirmation" placeholder="Konfirmasi Password" class="w-full p-2 border border-cyan-900 rounded-3xl mt-4">
+                    <button type="submit" class="w-full bg-gradient-to-t from-cyan-950 to-cyan-900 text-white p-2 rounded-3xl mt-4 hover:to-cyan-950">Daftar</button>
+                </form>
             </div>
         </div>
     </div>
+
 </div>
 
-
-    </div>
 </body>
+
+<script>
+document.querySelector('#card-daftar form').addEventListener('submit', function(e) {
+    console.log("Form daftar dikirim");
+});
+</script>
+
+
 <script> 
     document.addEventListener('DOMContentLoaded', function() {
     const cardWelcome = document.getElementById('card-welcome');

@@ -50,46 +50,64 @@
 
 <body class="bg-gradient-to-t from-blue-100 to-white">
     <header class="absolute inset-x-0 top-0 z-50">
-      <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
-        <div class="flex lg:flex-1">
-          <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">DrinkHub</span>
-            <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
-          </a>
+  <nav class="fixed top-0 w-full flex items-center justify-between p-4 lg:px-6 bg-blue-200 font-poppins shadow-xl shadow-black/5" aria-label="Global">
+    <div class="flex lg:flex-1">
+      <a href="{{ route('beranda') }}" class="-m-1.5 p-1.5">
+        <span class="sr-only">DrinkHub</span>
+        <img src="{{ asset('build/assets/img/logo.png') }}" alt="Logo" width="80">
+      </a>
+    </div>
+
+    <div class="flex lg:hidden">
+      <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+        <span class="sr-only">Open main menu</span>
+        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="hidden lg:flex lg:gap-x-12">
+      <a href="{{ route('beranda') }}"
+        class="text-base font-bold relative 
+          {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+        Beranda
+      </a>
+      <a href="{{ route('produk') }}"
+        class="text-base font-bold relative 
+          {{ Request::is('produk') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+        Produk
+      </a>
+      <a href="{{ route('kontak') }}"
+        class="text-base font-bold relative 
+          {{ Request::is('kontak') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
+        Kontak
+      </a>
+      <a href="#" class="text-base font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
+    </div>
+
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end items-center space-x-4">
+      @auth
+        <!-- Profil + Logout -->
+        <div class="flex items-center gap-2 text-cyan-950">
+          <i class="fas fa-user-circle text-2xl"></i>
+          <span>{{ Auth::user()->username }}</span>
+          <form action="{{ route('logout') }}" method="POST" class="inline">
+            @csrf
+            <button type="submit" class="text-sm text-red-600 hover:text-red-800 ml-2">Logout</button>
+          </form>
         </div>
-        <div class="flex lg:hidden">
-          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-            <span class="sr-only">Open main menu</span>
-            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-        </div>
-        <div class="hidden lg:flex lg:gap-x-12">
-          <a href="{{ route('beranda') }}"
-              class="text-base font-bold relative 
-                      {{ Request::is('/') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
-              Beranda
-          </a>
-           <a href="{{ route('produk') }}"
-              class="text-base font-bold relative 
-                      {{ Request::is('produk') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
-              Produk
-          </a>
-           <a href="{{ route('kontak') }}"
-              class="text-base font-bold relative 
-                      {{ Request::is('kontak') ? 'text-white after:content-[\'\'] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-[2px] after:bg-white' : 'text-cyan-950 hover:text-white transition-all duration-300 ease-in-out' }}">
-              Kontak
-          </a>
-          <a href="#" class="text-base/6 font-bold text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">Tentang</a>
-        </div>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="/masuk" class="text-base/6 font-bold text-cyan-950 bg-white px-4 py-2 rounded-lg hover:opacity-90
-                                  transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-101">
-            Masuk <span aria-hidden="true"></span></a>
-        </div>
-      </nav>
-    </header>
+      @else
+        <!-- Masuk -->
+        <a href="{{ route('masuk') }}"
+          class="text-sm font-semibold leading-6 text-cyan-950 hover:text-white transition-all duration-300 ease-in-out">
+          Masuk <span aria-hidden="true">&rarr;</span>
+        </a>
+      @endauth
+    </div>
+  </nav>
+</header>
+
 
 <body class="font-poppins ">
   <div class="bg-blue-200 py-20 px-10 relative">
@@ -117,10 +135,11 @@
             <div class="flex flex-col lg:flex-row">
               <div class="flex items-center bg-white text-black px-4 py-2 rounded-full gap-2 w-full max-w-xs mx-2">
                 <span class="text-lg">📍</span>
-                <span class="truncate text-sm">Jl. Mayjen Sungkono No....</span>
-                <svg class="w-4 h-4 text-gray-500 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
+                <select class="text-sm bg-white text-black px-2 py-1 rounded w-full focus:outline-none">
+                  <option disabled selected>Pilih Lokasi</option>
+                  <option value="kalimanah">Kalimanah</option>
+                  <option value="blater">Blater</option>
+                </select>
               </div>
               <button class="bg-gradient-to-t from-cyan-800 to-cyan-600 text-white text-xs px-6 py-2 rounded-full font-semibold hover:opacity-90 transition mx-2">
                 Explore
